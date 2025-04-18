@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdministradoresModule } from './administradores/administradores.module';
 
 @Module({
   imports: [
@@ -13,8 +14,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize:true,
       ssl:{
         rejectUnauthorized:false
-      }
-    })
+      },
+      autoLoadEntities:true
+    }),
+    AdministradoresModule
   ],
   controllers: [AppController],
   providers: [AppService],
