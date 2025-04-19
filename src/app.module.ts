@@ -9,6 +9,7 @@ import { ModuloModule } from './modulo/modulo.module';
 import { CursoModule } from './curso/curso.module';
 import { UsuarioController } from './usuario/usuario.controller';
 import { UsuarioModule } from './usuario/usuario.module';
+import { CursoxusuariosModule } from './cursoxusuarios/cursoxusuarios.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     SeccionModule,
     ModuloModule,
     CursoModule,
-    UsuarioModule
+    UsuarioModule,
+    CursoxusuariosModule
   ],
   controllers: [AppController, UsuarioController],
   providers: [AppService],

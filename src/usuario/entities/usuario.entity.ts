@@ -1,5 +1,6 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Entity } from "typeorm/decorator/entity/Entity";
+import { Cursoxusuario } from "src/cursoxusuarios/entities/cursoxusuario.entity";
 @Entity()
 export class Usuario{
     @PrimaryGeneratedColumn('uuid')
@@ -20,5 +21,8 @@ export class Usuario{
     vidas: number
     @Column({default:false})
     premium: boolean
+
+    @OneToMany(()=>Cursoxusuario, (cursoxusuario)=>cursoxusuario.usuario)
+    cursosxusuarios: Cursoxusuario[]; 
 
 }
