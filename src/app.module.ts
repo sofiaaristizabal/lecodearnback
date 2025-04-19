@@ -7,6 +7,8 @@ import { AdministradoresModule } from './administradores/administradores.module'
 import { SeccionModule } from './seccion/seccion.module';
 import { ModuloModule } from './modulo/modulo.module';
 import { CursoModule } from './curso/curso.module';
+import { UsuarioController } from './usuario/usuario.controller';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
@@ -23,9 +25,10 @@ import { CursoModule } from './curso/curso.module';
     AdministradoresModule,
     SeccionModule,
     ModuloModule,
-    CursoModule
+    CursoModule,
+    UsuarioModule
   ],
-  controllers: [AppController],
+  controllers: [AppController, UsuarioController],
   providers: [AppService],
 })
 export class AppModule {}
