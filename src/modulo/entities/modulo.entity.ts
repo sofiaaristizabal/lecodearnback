@@ -1,7 +1,7 @@
 import { Seccion } from "src/seccion/entities/seccion.entity";
-import { Curso } from "src/seccion/entities/curso.entity";
+import { Curso } from "src/curso/entities/curso.entity";
 
-import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Modulo{

@@ -7,7 +7,6 @@ import { AdministradoresModule } from './administradores/administradores.module'
 import { SeccionModule } from './seccion/seccion.module';
 import { ModuloModule } from './modulo/modulo.module';
 import { CursoModule } from './curso/curso.module';
-import { UsuarioController } from './usuario/usuario.controller';
 import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
@@ -28,7 +27,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     CursoModule,
     UsuarioModule
   ],
-  controllers: [AppController, UsuarioController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
