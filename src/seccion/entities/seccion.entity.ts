@@ -1,6 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Modulo } from "src/modulo/entities/modulo.entity";
 
 @Entity('seccion')
+
 export class Seccion{
 @PrimaryGeneratedColumn('uuid')
 id:string;

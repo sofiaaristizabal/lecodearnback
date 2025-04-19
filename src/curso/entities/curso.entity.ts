@@ -6,6 +6,6 @@ export class Curso {
     id: string;
     @Column()
     nombre:string
-    @OneToMany(()=>Modulo, modulo=> modulo.curso)
+    @OneToMany(()=>Modulo, (modulo)=> modulo.curso)
     modulos: Modulo[];
 }
