@@ -24,6 +24,7 @@ export class QuizzesService {
       numero: createQuizDto.numero,
       modulo
     });
+    await this.quizRepository.save(quiz);
     return quiz;
    }catch(err){
     console.log(err);

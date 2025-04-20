@@ -31,6 +31,7 @@ export class CursoxusuariosService {
         usuario,
         curso
       });
+      await this.cursoxusuarioRepository.save(cursoxusuario);
       return cursoxusuario;
     }catch(err){
        console.log(err);
