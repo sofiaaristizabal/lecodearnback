@@ -1,5 +1,6 @@
 import { Seccion } from "src/seccion/entities/seccion.entity";
 import { Curso } from "src/curso/entities/curso.entity";
+import { Quiz } from "src/quizzes/entities/quiz.entity";
 
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -15,4 +16,6 @@ export class Modulo{
     curso:Curso
     @OneToMany(()=>Seccion, seccion=> seccion.modulo)
     secciones: Seccion[]
+    @OneToMany(()=>Quiz, (quiz)=>quiz.modulo)
+    quizzes: Quiz[]; 
 }
