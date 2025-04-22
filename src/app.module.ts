@@ -8,6 +8,9 @@ import { SeccionModule } from './seccion/seccion.module';
 import { ModuloModule } from './modulo/modulo.module';
 import { CursoModule } from './curso/curso.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { CursoxusuariosModule } from './cursoxusuarios/cursoxusuarios.module';
+import { QuizzesModule } from './quizzes/quizzes.module';
+import { CursoIniciadosModule } from './curso-iniciados/curso-iniciados.module';
 
 @Module({
   imports: [
@@ -25,7 +28,10 @@ import { UsuarioModule } from './usuario/usuario.module';
     SeccionModule,
     ModuloModule,
     CursoModule,
-    UsuarioModule
+    UsuarioModule,
+    CursoxusuariosModule,
+    QuizzesModule,
+    CursoIniciadosModule
   ],
   controllers: [AppController],
   providers: [AppService],
