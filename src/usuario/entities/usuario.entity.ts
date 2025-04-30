@@ -2,6 +2,7 @@ import { Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Entity } from "typeorm/decorator/entity/Entity";
 import { Cursoxusuario } from "src/cursoxusuarios/entities/cursoxusuario.entity";
 import { CursoIniciado } from "src/curso-iniciados/entities/curso-iniciado.entity";
+import { Quizxusuario } from "src/quizxusuarios/entities/quizxusuario.entity";
 @Entity()
 export class Usuario{
     @PrimaryGeneratedColumn('uuid')
@@ -28,5 +29,8 @@ export class Usuario{
 
     @OneToMany(()=>CursoIniciado, (cursoIniciado)=>cursoIniciado.usuario)
     cursosIniciados: CursoIniciado[]; 
+
+    @OneToMany(()=>Quizxusuario, (quizxusuario)=> quizxusuario.usuario)
+    quizzesxusuarios: Quizxusuario[];
 
 }
