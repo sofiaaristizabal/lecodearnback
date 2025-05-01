@@ -11,6 +11,8 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { CursoxusuariosModule } from './cursoxusuarios/cursoxusuarios.module';
 import { QuizzesModule } from './quizzes/quizzes.module';
 import { CursoIniciadosModule } from './curso-iniciados/curso-iniciados.module';
+import { QuizxusuariosModule } from './quizxusuarios/quizxusuarios.module';
+import { PreguntasModule } from './preguntas/preguntas.module';
 
 @Module({
   imports: [
@@ -31,7 +33,9 @@ import { CursoIniciadosModule } from './curso-iniciados/curso-iniciados.module';
     UsuarioModule,
     CursoxusuariosModule,
     QuizzesModule,
-    CursoIniciadosModule
+    CursoIniciadosModule,
+    QuizxusuariosModule,
+    PreguntasModule
   ],
   controllers: [AppController],
   providers: [AppService],
