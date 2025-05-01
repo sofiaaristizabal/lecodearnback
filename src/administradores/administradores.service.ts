@@ -16,7 +16,10 @@ export class AdministradoresService {
 
   async create(createAdministradoreDto: CreateAdministradoreDto) {
     try{
-
+      const existe = await this.administradorRepository.findOneBy({ email: createAdministradoreDto.email });
+      if (existe) {
+        throw new BadRequestException('El administrador ya existe');
+      }
       const administrador = this.administradorRepository.create(createAdministradoreDto);
       administrador.password = await bcrypt.hash(administrador.password, 10);
       await this.administradorRepository.save(administrador)
