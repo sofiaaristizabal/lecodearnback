@@ -6,10 +6,14 @@ import { CursoIniciado } from "src/curso-iniciados/entities/curso-iniciado.entit
 export class Curso {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-    @Column()
+    @Column('text')
     nombre:string
+
+    @Column('text')
+    image: string; 
+    
     @OneToMany(()=>Modulo, (modulo)=> modulo.curso)
-    modulos: Modulo[];
+    modulos: Modulo[];    
 
     @OneToMany(()=>Cursoxusuario, (cursoxusuario)=>cursoxusuario.curso)
     cursosxusuarios: Cursoxusuario[]; 
