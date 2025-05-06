@@ -5,13 +5,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateModuloDto } from './dto/create-modulo.dto';
 import { UpdateModuloDto } from './dto/update-modulo.dto';
 import { Curso } from 'src/curso/entities/curso.entity';
+import { CursoService } from 'src/curso/curso.service';
 @Injectable()
 export class ModuloService {
     constructor(
         @InjectRepository(Modulo)
         private readonly moduloRepository: Repository<Modulo>,
         @InjectRepository(Curso)
-        private readonly cursoRepository: Repository<Curso>,
+        private readonly cursoRepository: Repository<Curso>
+
     ) { }
     async create(createModuloDto: CreateModuloDto) {
         const curso = await this.cursoRepository.findOneBy({ id: createModuloDto.cursoId });
@@ -36,6 +38,12 @@ export class ModuloService {
             return modulo;
         }
     }
+
+    async findByCurso(cursoId: string){
+      const modulos = await this.moduloRepository.find({where: {curso: {id: cursoId}}});
+      return modulos; 
+    }
+
     async update(id: string, updateModuloDto: UpdateModuloDto){
         const modulo = await this.moduloRepository.preload(
             {id,

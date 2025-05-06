@@ -22,12 +22,12 @@ export class QuizxusuariosController {
     return this.quizxusuariosService.findOne(id);
   }
 
-  @Get(':userId')
+  @Get('usuario/:userId')
   findByUser(@Param('userId') userId:string){
     return this.quizxusuariosService.findByUser(userId);
   }
 
-  @Get(':quizId')
+  @Get('quiz/:quizId')
   findByQuiz(@Param('quizId') quizId:string){
     return this.quizxusuariosService.findByQuiz(quizId);
   }

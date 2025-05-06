@@ -22,7 +22,7 @@ export class PreguntasController {
     return this.preguntasService.findOne(id);
   }
 
-  @Get(':quizId')
+  @Get('quiz/:quizId')
   findByQuiz(@Param('quizId') quizId: string){
     return this.preguntasService.findByQuiz(quizId);
   }

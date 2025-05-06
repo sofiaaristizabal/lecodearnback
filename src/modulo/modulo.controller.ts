@@ -17,6 +17,10 @@ export class ModuloController {
     findOne(@Param('id') id: string) {
         return this.moduloService.findOne(id);
     }
+    @Get('curso/:cursoId')
+    findByCurso(@Param('cursoId') cursoId: string) {
+        return this.moduloService.findByCurso(cursoId);
+    }
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateModuloDto: UpdateModuloDto) {
         return this.moduloService.update(id, updateModuloDto);

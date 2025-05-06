@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsUUID } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class CreateModuloDto {
     @IsString()
@@ -6,6 +6,6 @@ export class CreateModuloDto {
     titulo: string;
     @IsNumber()
     number:number
-    @IsUUID()
+    @IsString()
     cursoId: string;
 }
