@@ -6,6 +6,7 @@ import { CreateSeccionDto } from './dto/create-seccion.dto';
 import { UpdateSeccionDto } from './dto/update-seccion.dto';
 import { Modulo } from 'src/modulo/entities/modulo.entity';
 
+
 @Injectable()
 export class SeccionService {
     constructor(
@@ -39,6 +40,12 @@ export class SeccionService {
             return seccion;
         }
     }
+
+    async findByModulo(moduloId:string){
+     const secciones = await this.seccionRepository.find({where: {modulo: {id:moduloId}}});
+     return secciones; 
+    }
+
     async update(id: string, updateSeccionDto: UpdateSeccionDto) {
         const seccion = await this.seccionRepository.preload({
             id,

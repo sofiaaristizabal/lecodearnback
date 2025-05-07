@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateModuloDto } from './dto/create-modulo.dto';
 import { UpdateModuloDto } from './dto/update-modulo.dto';
 import { Curso } from 'src/curso/entities/curso.entity';
-import { CursoService } from 'src/curso/curso.service';
+
 @Injectable()
 export class ModuloService {
     constructor(

@@ -18,6 +18,12 @@ export class SeccionController {
     findOne(@Param('id') id: string) {
         return this.seccionService.findOne(id);
     }
+
+    @Get('modulo/:idModulo')
+    findByModulo(@Param('idModulo') idModulo: string) {
+        return this.seccionService.findByModulo(idModulo);
+    }
+
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateSeccionDto: UpdateSeccionDto) {
         return this.seccionService.update(id, updateSeccionDto);
