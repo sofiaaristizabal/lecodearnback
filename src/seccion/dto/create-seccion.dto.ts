@@ -1,15 +1,15 @@
-import { IsNumber, IsString, IsUUID } from "class-validator";
+import { IsNumberString, IsString} from "class-validator";
 
 export class CreateSeccionDto {
-    @IsNumber()
-    numero: number;
+    @IsNumberString()
+    numero: string;
     @IsString()
     titulo: string;
     @IsString()
     teoria: string;
     @IsString()
     ejemplo: string;
-    @IsUUID()
+    @IsString()
     moduloId: string;
   }
   

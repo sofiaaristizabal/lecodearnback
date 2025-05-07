@@ -7,7 +7,7 @@ export class Seccion{
 @PrimaryGeneratedColumn('uuid')
 id:string;
 @Column()
-numero: number
+numero: string
 @Column()
 titulo: string
 @Column()
