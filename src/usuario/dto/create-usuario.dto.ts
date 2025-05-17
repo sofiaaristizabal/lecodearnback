@@ -1,4 +1,4 @@
-import { IsBoolean, IsNumber, IsString } from "class-validator"
+import { IsBoolean, IsNumber, IsString, IsDateString } from "class-validator"
 
 export class CreateUsuarioDto{
     @IsString()
@@ -17,4 +17,6 @@ export class CreateUsuarioDto{
     vidas: number
     @IsBoolean()
     premium: boolean
+    @IsDateString()
+    creadoEn: string
 }

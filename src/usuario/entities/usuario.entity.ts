@@ -23,6 +23,8 @@ export class Usuario{
     vidas: number
     @Column({default:false})
     premium: boolean
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    creadoEn: Date; 
 
     @OneToMany(()=>Cursoxusuario, (cursoxusuario)=>cursoxusuario.usuario)
     cursosxusuarios: Cursoxusuario[]; 

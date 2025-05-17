@@ -13,14 +13,18 @@ export class UsuarioService {
       ) {}
 
       async create(createUsuarioDto: CreateUsuarioDto) {
+
         try {
           const existe = await this.usuarioRepository.findOneBy({ email: createUsuarioDto.email });
           if (existe) {
             throw new BadRequestException('El usuario ya existe');
           }
-      
-          const usuario = this.usuarioRepository.create(createUsuarioDto);
-          usuario.password = await bcrypt.hash(usuario.password, 10);
+
+          const usuario = this.usuarioRepository.create({
+         ...createUsuarioDto,
+         password: await bcrypt.hash(createUsuarioDto.password, 10),
+         creadoEn: createUsuarioDto.creadoEn ? new Date(createUsuarioDto.creadoEn) : new Date(),
+         });
       
           await this.usuarioRepository.save(usuario);
           return usuario;
