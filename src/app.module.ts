@@ -13,10 +13,13 @@ import { QuizzesModule } from './quizzes/quizzes.module';
 import { CursoIniciadosModule } from './curso-iniciados/curso-iniciados.module';
 import { QuizxusuariosModule } from './quizxusuarios/quizxusuarios.module';
 import { PreguntasModule } from './preguntas/preguntas.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot(
+      { isGlobal: true,}
+    ),
     TypeOrmModule.forRoot({
       type:'postgres',
       url: process.env.DATABASE_URL,
@@ -35,7 +38,8 @@ import { PreguntasModule } from './preguntas/preguntas.module';
     QuizzesModule,
     CursoIniciadosModule,
     QuizxusuariosModule,
-    PreguntasModule
+    PreguntasModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

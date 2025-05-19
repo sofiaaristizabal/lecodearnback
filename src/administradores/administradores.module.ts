@@ -3,6 +3,7 @@ import { AdministradoresService } from './administradores.service';
 import { AdministradoresController } from './administradores.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Administradore } from './entities/administradore.entity';
+import { UsuarioModule } from 'src/usuario/usuario.module';
 
 
 @Module({

@@ -45,6 +45,21 @@ export class UsuarioService {
             return usuario;
         }
     }
+
+    async findByEmail(email: string){
+     const usuario = await this.usuarioRepository.findOne({
+        where:{
+            email
+        }
+     })
+
+     if(!usuario){
+        throw new BadRequestException('Usuario no encontrado');
+     }else{
+      return usuario;
+     } 
+    }
+
     async update(id: string, updateUsuarioDto: CreateUsuarioDto) {
         const usuario = await this.usuarioRepository.preload({
             id,
