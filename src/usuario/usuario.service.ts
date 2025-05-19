@@ -75,9 +75,9 @@ export class UsuarioService {
         const usuario = await this.findOne(id);
         return await this.usuarioRepository.remove(usuario);
     }
-    async login(LoginUsuarioDto: LoginUsuarioDto) {
+    async login(loginUsuarioDto: LoginUsuarioDto) {
         try{
-            const {email, password} = LoginUsuarioDto;
+            const {email, password} = loginUsuarioDto;
             const usuario = await this.usuarioRepository.findOneBy({email});
             if(!usuario){
                 throw new BadRequestException('Invalid credentials');
