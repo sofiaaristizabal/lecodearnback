@@ -3,6 +3,7 @@ import { Entity } from "typeorm/decorator/entity/Entity";
 import { Cursoxusuario } from "src/cursoxusuarios/entities/cursoxusuario.entity";
 import { CursoIniciado } from "src/curso-iniciados/entities/curso-iniciado.entity";
 import { Quizxusuario } from "src/quizxusuarios/entities/quizxusuario.entity";
+import { Role } from "src/auth/enums/role.enum";
 @Entity()
 export class Usuario{
     @PrimaryGeneratedColumn('uuid')
@@ -11,20 +12,26 @@ export class Usuario{
     email: string
     @Column()
     password: string
-    @Column()
+    @Column({nullable: true})
     nombre:string 
     @Column({type:'date'})
     fecha_nacimiento:string
-    @Column()
+    @Column({nullable: true})
     pais:string 
-    @Column()
+    @Column({nullable: true})
     nivel_educacion: string
-    @Column()
+    @Column({nullable: true})
     vidas: number
     @Column({default:false})
     premium: boolean
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    creadoEn: Date; 
+    creadoEn: Date;
+    @Column({
+        type: 'enum',
+        enum: Role,
+        default: Role.USER
+    })
+    role:Role;
 
     @OneToMany(()=>Cursoxusuario, (cursoxusuario)=>cursoxusuario.usuario)
     cursosxusuarios: Cursoxusuario[]; 
