@@ -13,7 +13,8 @@ export class AuthController {
   @Post("login")
   async login(@Req() req: UserRequest){
     const token = this.authService.login(req.user.id)
-    return {id: req.user.id, token}
+    const role = (await this.authService.validateJwtUser(req.user.id)).role
+    return {id: req.user.id, token, role}
   }
 
 }
