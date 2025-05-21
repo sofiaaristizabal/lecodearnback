@@ -14,7 +14,7 @@ export class Usuario{
     password: string
     @Column({nullable: true})
     nombre:string 
-    @Column({type:'date'})
+    @Column({type:'date', nullable:true})
     fecha_nacimiento:string
     @Column({nullable: true})
     pais:string 

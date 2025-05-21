@@ -5,6 +5,7 @@ import { Usuario } from './entities/usuario.entity';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { LoginUsuarioDto } from './dto/login-usuario.dto';
 import * as bcrypt from 'bcrypt';
+import { CreateAdminDto } from './dto/create-admin.dto';
 @Injectable()
 export class UsuarioService {
     constructor(
@@ -33,6 +34,28 @@ export class UsuarioService {
           throw new BadRequestException(err.detail || 'Error al crear el usuario');
         }
       }
+
+    async createAdmin(createAdminDto: CreateAdminDto){
+
+         try {
+          const existe = await this.usuarioRepository.findOneBy({ email: createAdminDto.email });
+          if (existe) {
+            throw new BadRequestException('El usuario ya existe');
+          }
+
+          const usuario = this.usuarioRepository.create({
+         ...createAdminDto,
+         password: await bcrypt.hash(createAdminDto.password, 10)
+         });
+      
+          await this.usuarioRepository.save(usuario);
+          return usuario;
+        } catch (err) {
+          console.log(err);
+          throw new BadRequestException(err.detail || 'Error al crear el usuario');
+        }
+
+    }
       
     async findAll() {
         return await this.usuarioRepository.find();
